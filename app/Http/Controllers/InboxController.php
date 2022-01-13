@@ -17,10 +17,12 @@ class InboxController extends Controller
     public function index()
     {
         $inboxes = Inbox::latest()->get();
-        if (request('min') && request('max')) {
+        // dd(request()->all());
+        if (request('min') && request('max') && request('jenis_surat') > 0) {
             $min = request('min');
             $max = request('max');
-            $inboxes = Inbox::whereBetWeen('tanggal_masuk', [$min, $max])->get();
+            $jenis_surat = request('jenis_surat');
+            $inboxes = Inbox::whereBetWeen('tanggal_masuk', [$min, $max])->where('jenis_surat_id', $jenis_surat)->get();
         }
         //get data from table jenisSurat
         $jenisSurat = JenisSurat::all();

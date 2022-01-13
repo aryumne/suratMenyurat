@@ -114,12 +114,6 @@ class DatabaseSeeder extends Seeder
             'jenis_surat_name' => 'Surat Pengantar',
         ]);
         JenisSurat::create([
-            'jenis_surat_name' => 'Surat Permohonan',
-        ]);
-        JenisSurat::create([
-            'jenis_surat_name' => 'Surat Permohonan',
-        ]);
-        JenisSurat::create([
             'jenis_surat_name' => 'Surat Edaran',
         ]);
 

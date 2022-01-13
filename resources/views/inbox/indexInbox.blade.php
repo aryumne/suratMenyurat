@@ -9,9 +9,10 @@
                     </h1>
                 </div>
                 <div>
-                    <button  class="
-                    btn btn-primary" data-bs-toggle="modal" data-bs-target="#newInbox">Surat Baru
-                    Masuk</button>
+                    <button class="
+                    btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#newInbox">Surat Baru
+                        Masuk</button>
                 </div>
             </div>
         </div>
@@ -48,24 +49,25 @@
                                     <label for=" min" class="form-label">Tanggal
                                         Awal</label>
                                     <input type="date" class="form-control" id="min" name="min"
-                                        value="{{ request('min') }}">
+                                        value="{{ request('min') }}" required>
                                 </div>
                             </div>
                             <div class="col-lg-3 col-sm-12">
                                 <div class="pb-2">
                                     <label for="max" class="form-label">Tanggal Akhir</label>
                                     <input type="date" class="form-control" id="max" name="max"
-                                        value="{{ request('max') }}">
+                                        value="{{ request('max') }}" required>
                                 </div>
                             </div>
                             <div class="col-lg-3 col-sm-12">
                                 <div class="pb-2">
                                     <label for="jenis_surat" class="form-label">Jenis Surat</label>
                                     <select id="jenis_surat" name="jenis_surat" class="form-select">
-                                        <option value="0" selected>Semua</option>
+                                        <option value="0" {{ request('jenis_surat') == '0' ? 'selected' : '' }}>Semua
+                                        </option>
                                         @foreach ($jenisSurat as $item)
                                             <option value="{{ $item->id }}"
-                                                {{ old('jenis_surat') == $item->id ? 'selected' : '' }}>
+                                                {{ request('jenis_surat') == $item->id ? 'selected' : '' }}>
                                                 {{ $item->jenis_surat_name }}</option>
                                         @endforeach
                                     </select>
